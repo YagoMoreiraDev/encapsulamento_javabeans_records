@@ -10,6 +10,6 @@ public class ServicoPagamentoOnline {
 
         cartao.debitar(valor);
 
-        return new Recibo(cartao.obterTitular(), "Pagemento", valor);
+        return new Recibo(cartao.getTitular(), "Pagemento", valor);
     }
 }

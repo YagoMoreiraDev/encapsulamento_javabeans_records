@@ -1,6 +1,8 @@
 package teoria.model;
 
-public class Cartao {
+import java.io.Serializable;
+
+public class Cartao implements Serializable {
 
     public static final double TARIFA_DEPOSITO = 0.10;
     public static final double VALOR_MINIMO_DEPOSITO = 50.0;
@@ -8,21 +10,24 @@ public class Cartao {
     private String titular;
     private double saldo;
 
+    public Cartao() {
+    }
+
     public Cartao(String titular) {
         this.titular = titular;
     }
 
-    public String obterTitular() {
+    public String getTitular() {
         return this.titular;
     }
 
-    public double obterSaldo() {
+    public double getSaldo() {
         return this.saldo;
     }
 
     public void debitar(double valor) {
 
-        if (obterSaldo() < valor) {
+        if (getSaldo() < valor) {
             throw new RuntimeException(
                     "Saldo insuficiente para pagamento"
             );
